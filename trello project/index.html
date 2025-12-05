@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopHub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <!-- <i class="fas fa-shopping-bag"></i> -->
+                    <span>ShopHub</span>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#products" class="nav-link">Products</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+                <div class="nav-icons">
+                    <button class="icon-btn" id="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <button class="icon-btn cart-btn" id="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </button>
+                    <button class="icon-btn" id="user-btn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Products</h2>
+                <p>Check out our handpicked selection</p>
+            </div>
+
+            <div class="filter-section">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="electronics">Electronics</button>
+                <button class="filter-btn" data-filter="fashion">Fashion</button>
+                <button class="filter-btn" data-filter="home">Home & Garden</button>
+            </div>
+
+            <div class="products-grid" id="products-grid">
+                <div class="product-card" data-category="electronics" data-description="Nice blue headphones to listen to Asake.">
+                    <div class="product-image">
+                            <img src="wireless-headset.jpg" alt="Wireless Headphones" class="product-img">
+                            <span class="badge">New</span>
+                        </div>
+                    <div class="product-info">
+                        <h3>Wireless Headphones</h3>
+                        <p class="category">Electronics</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(142)</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price">$79.99</span>
+                            <button class="add-cart-btn" data-product="Wireless Headphones">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="fashion" data-description="Orange tshirt that will attract people.">
+                    <div class="product-image">
+                        <img src="tshirt.jpg" alt="Premium T-Shirt" class="product-img">
+                        <span class="badge sale">Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>T-Shirt</h3>
+                        <p class="category">Fashion</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(89)</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price"><span class="original">$39.99</span> $24.99</span>
+                            <button class="add-cart-btn" data-product="Premium T-Shirt">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="home" data-description="Small table lamp to help you when youre burning your midnight candles.">
+                    <div class="product-image">
+                        <img src="table-lamp.jpg" alt="Table Lamp" class="product-img">
+                        <span class="badge">New</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Table Lamp</h3>
+                        <p class="category">Home & Garden</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(67)</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price">$34.99</span>
+                            <button class="add-cart-btn" data-product="Table Lamp">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="electronics" data-description="Black wireless speaker with powerful sound.">
+                    <div class="product-image">
+                        <img src="portable-speaker.jpg" alt="Portable Speaker" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3>Portable Speaker</h3>
+                        <p class="category">Electronics</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(203)</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price">$49.99</span>
+                            <button class="add-cart-btn" data-product="Portable Speaker">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="fashion" data-description="Comfortable black running shoes for running.">
+                    <div class="product-image">
+                        <img src="running-shoes.jpg" alt="Running Shoes" class="product-img">
+                    </div>
+                    <div class="product-info">
+                        <h3>Running Shoes</h3>
+                        <p class="category">Fashion</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(156)</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price">$89.99</span>
+                            <button class="add-cart-btn" data-product="Running Shoes">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="home" data-description="Dont go to malam anymore, make your coffee home.">
+                    <div class="product-image">
+                        <img src="coffee-maker.jpg" alt="Coffee Maker" class="product-img">
+                        <span class="badge sale">Sale</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Coffee Maker</h3>
+                        <p class="category">Home & Garden</p>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(98)</span>
+                        </div>
+                        <div class="product-footer">
+                            <span class="price"><span class="original">$59.99</span> $44.99</span>
+                            <button class="add-cart-btn" data-product="Coffee Maker">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-all">
+                <button class="btn btn-secondary">View All Products</button>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
