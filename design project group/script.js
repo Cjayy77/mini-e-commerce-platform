@@ -33,8 +33,15 @@ addCartButtons.forEach(button => {
         e.stopPropagation();
         const productName = button.getAttribute('data-product');
         const productCard = button.closest('.product-card');
-        const price = productCard.querySelector('.price').textContent;
-
+        const price = postcard.querySelector('.price').textContent;
+       
+        const cleanPrice = parseFloat(price.replace('$', ''));
+        
+        const exists = cart.find(item => item.name === productName);
+        if (exists) {
+            alert('Product already in cart');
+            return;
+        }
         cart.push({ name: productName, price: price });
         updateCartCount();
 
@@ -96,11 +103,29 @@ function updateCartCount() {
 }
 
 cartBtn.addEventListener('click', () => {
-    if (cart.length > 0) {
-        alert(`Cart (${cart.length} items):\n\n${cart.map(item => `${item.name} - ${item.price}`).join('\n')}`);
-    } else {
+    if (cart.length === 0) {
         alert('Your cart is empty');
+        return;
     }
+
+    let total = 0;
+    let cartItems = cart.map((item, index) => {
+        total += item.price;
+        return `${index + 1}. ${item.name} - $${item.price.toFixed(2)}`;
+    }).join('\n');
+
+    alert(
+        `🛒 Your Cart\n\n${cartItems}\n\nTotal: $${total.toFixed(2)}`
+    );
+    let removeIndex = prompt(
+        "enter item you want to remove(or cancel):;
+        );
+    if (removeIndex !==null){
+        cart.splice(removeIndex -1, 1);
+        updateCartCount();
+    }
+    cart.length =0;
+    updatCartCount();
 });
 
 if (newsletterForm) {
@@ -111,13 +136,30 @@ if (newsletterForm) {
         newsletterForm.reset();
     });
 }
+const searchInput = document.getElementById('search-input');
 
-const searchBtn = document.getElementById('search-btn');
-if (searchBtn) {
-    searchBtn.addEventListener('click', () => {
-        alert('Search feature coming soon!');
+if (searchInput) {
+    searchInput.addEventListener('keyup', () => {
+        const searchValue = searchInput.value.toLowerCase();
+
+        productCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const category = card.getAttribute('data-category').toLowerCase();
+            const description = card.getAttribute('data-description').toLowerCase();
+
+            if (
+                title.includes(searchValue) ||
+                category.includes(searchValue) ||
+                description.includes(searchValue)
+            ) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
     });
 }
+
 
 const userBtn = document.getElementById('user-btn');
 if (userBtn) {
@@ -195,3 +237,4 @@ function router() {
 
 window.addEventListener('hashchange', router);
 window.addEventListener('DOMContentLoaded', router);
+
