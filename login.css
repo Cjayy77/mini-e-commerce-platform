@@ -103,6 +103,7 @@
 }
 .login-footer {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     margin-top: 1.5rem;
     font-size: 0.9rem;
@@ -183,3 +184,4 @@
 .separator:not(:empty)::after {
     margin-left: .5em;
 }
+
