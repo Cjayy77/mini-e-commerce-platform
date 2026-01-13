@@ -100,6 +100,7 @@ body {
 .cart-btn {
     position: relative;
 }
+
 .search-input {
     padding: 8px 12px;
     border-radius: 6px;
@@ -112,7 +113,6 @@ body {
     outline: none;
     border-color: var(--primary-color);
 }
-
 .cart-count {
     position: absolute;
     top: -8px;
@@ -608,4 +608,3 @@ body {
     font-size: 13px;
     line-height: 1.4;
 }
-
