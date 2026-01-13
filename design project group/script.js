@@ -33,7 +33,7 @@ addCartButtons.forEach(button => {
         e.stopPropagation();
         const productName = button.getAttribute('data-product');
         const productCard = button.closest('.product-card');
-        const price = postcard.querySelector('.price').textContent;
+        const price = productCard.querySelector('.price').textContent;
        
         const cleanPrice = parseFloat(price.replace('$', ''));
         
@@ -237,4 +237,5 @@ function router() {
 
 window.addEventListener('hashchange', router);
 window.addEventListener('DOMContentLoaded', router);
+
 
