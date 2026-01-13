@@ -34,15 +34,19 @@ addCartButtons.forEach(button => {
         const productName = button.getAttribute('data-product');
         const productCard = button.closest('.product-card');
         const price = productCard.querySelector('.price').textContent;
-       
+
         const cleanPrice = parseFloat(price.replace('$', ''));
-        
+
         const exists = cart.find(item => item.name === productName);
         if (exists) {
             alert('Product already in cart');
             return;
         }
-        cart.push({ name: productName, price: price });
+
+        cart.push({
+            name: productName,
+            price: cleanPrice
+        });
         updateCartCount();
 
         button.innerHTML = '<i class="fas fa-check"></i>';
@@ -101,6 +105,7 @@ function updateCartCount() {
     const cartCount = document.querySelector('.cart-count');
     cartCount.textContent = cart.length;
 }
+ 
 
 cartBtn.addEventListener('click', () => {
     if (cart.length === 0) {
@@ -115,17 +120,17 @@ cartBtn.addEventListener('click', () => {
     }).join('\n');
 
     alert(
-        `🛒 Your Cart\n\n${cartItems}\n\nTotal: $${total.toFixed(2)}`
+       `🛒 Your Cart\n\n${cartItems}\n\nTotal: $${total.toFixed(2)}`
     );
     let removeIndex = prompt(
-        "enter item you want to remove(or cancel):;
-        );
+        "enter item you want to remove(or cancel):"
+    );
     if (removeIndex !==null){
         cart.splice(removeIndex -1, 1);
         updateCartCount();
     }
     cart.length =0;
-    updatCartCount();
+    updateCartCount();
 });
 
 if (newsletterForm) {
@@ -136,6 +141,7 @@ if (newsletterForm) {
         newsletterForm.reset();
     });
 }
+
 const searchInput = document.getElementById('search-input');
 
 if (searchInput) {
@@ -159,7 +165,6 @@ if (searchInput) {
         });
     });
 }
-
 
 const userBtn = document.getElementById('user-btn');
 if (userBtn) {
@@ -237,6 +242,3 @@ function router() {
 
 window.addEventListener('hashchange', router);
 window.addEventListener('DOMContentLoaded', router);
-
-
-
