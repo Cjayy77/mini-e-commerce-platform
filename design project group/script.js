@@ -111,7 +111,7 @@ cartBtn.addEventListener('click', () => {
     let total = 0;
     let cartItems = cart.map((item, index) => {
         total += item.price;
-        return `${index + 1}. ${item.name} - $${item.price.toFixed(2)}`;
+        return '${index + 1}. ${item.name} - $${item.price.toFixed(2)}';
     }).join('\n');
 
     alert(
@@ -237,5 +237,6 @@ function router() {
 
 window.addEventListener('hashchange', router);
 window.addEventListener('DOMContentLoaded', router);
+
 
 
